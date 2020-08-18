@@ -56,13 +56,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///         //var result = entryResult.Result.Title;
-        ///     });
+        ///     Entry entryResult = await entry.Fetch&lt;Entry&gt;();
+        ///     String title = entryResult.Title;
         /// </code>
         /// </example>
         public string Title { get; set; }
@@ -73,13 +71,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///         //var result = entryResult.Result.Uid;
-        ///     });
+        ///     Entry entryResult = await entry.Fetch&lt;Entry&gt;();
+        ///     var result = entryResult.Uid;
         /// </code>
         /// </example>
         public string Uid { get; set; }
@@ -90,13 +86,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///         //var result = entryResult.Result.Tags;
-        ///     });
+        ///     Entry entryResult = await entry.Fetch&lt;Entry&gt;();
+        ///     var result = entryResult.Tags;
         /// </code>
         /// </example>
         public object[] Tags { get; set; }
@@ -107,13 +101,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///         //var result = entryResult.Result.Metadata;
-        ///     });
+        ///     Entry entryResult = await entry.Fetch&lt;Entry&gt;();
+        ///     var result = entryResult.Metadata;
         /// </code>
         /// </example>
         public Dictionary<string, object> Metadata { get; set; }
@@ -124,13 +116,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///         //var result = entryResult.Result.Object;
-        ///     });
+        ///     Entry entryResult = await entry.Fetch&lt;Entry&gt;();
+        ///     var result = entryResult.Object;
         /// </code>
         /// </example>
         public Dictionary<string, object> Object
@@ -232,13 +222,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///         //var result = entryResult.Result.GetTags();
-        ///     });
+        ///     Entry entryResult = await entry.Fetch&lt;Entry&gt;();
+        ///     var result = entryResult.GetTags();
         /// </code>
         /// </example>
         public object[] GetTags()
@@ -286,13 +274,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
         ///     entry.SetCachePolicy(CachePolicy.NetworkElseCache);
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     Product product= await entry.Fetch&lt;Product&gt;();
         /// </code>
         /// </example>
         public Entry SetCachePolicy(CachePolicy cachePolicy)
@@ -309,13 +295,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///         //var result = entryResult.Result.GetTitle();
-        ///     });
+        ///     Entry entryResult = await entry.Fetch&lt;Entry&gt;();
+        ///     var result = entryResult.GetTitle();
         /// </code>
         /// </example>
         public string GetTitle()
@@ -330,8 +314,8 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
         ///     entry.GetContentType()
         /// </code>
@@ -348,13 +332,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///         //var result = entryResult.Result.GetUid();
-        ///     });
+        ///     Entry entryResult = await entry.Fetch&lt;Entry&gt;();
+        ///     var result = entryResult.GetUid();
         /// </code>
         /// </example>
         public String GetUid()
@@ -370,8 +352,8 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
         ///     entry.SetHeader(&quot;custom_key&quot;, &quot;custom_value&quot;);
         /// </code>
@@ -394,8 +376,8 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
         ///     entry.RemoveHeader(&quot;custom_key&quot;);
         /// </code>
@@ -414,13 +396,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///         //var result = entryResult.Result.GetMetadata();
-        ///     });
+        ///     Entry entryResult = await entry.Fetch&lt;Entry&gt;();
+        ///     var result = entryResult.GetMetadata();
         /// </code>
         /// </example>
         public Dictionary<string, Object> GetMetadata()
@@ -436,14 +416,10 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
         ///     entry.SetLanguage(Language.ENGLISH_UNITED_STATES);
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///         //var result = entryResult.Result.GetMetadata();
-        ///     });
         /// </code>
         /// </example>
         [ObsoleteAttribute("This method has been deprecated. Use SetLocale instead.", true)]
@@ -486,14 +462,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
         ///     entry.SetLocale("en-us");
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///         //var result = entryResult.Result.GetMetadata();
-        ///     });
+        ///     Product entryResult = await entry.Fetch&lt;Product&gt;();
         /// </code>
         /// </example>
         public Entry SetLocale(String Locale)
@@ -518,13 +491,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///         //var result = entryResult.Result.GetHTMLText(&quot;markdownKey&quot;)
-        ///     });
+        ///     Entry entryResult = await entry.Fetch&lt;Entry&gt;();
+        ///     var result = entryResult.GetHTMLText(&quot;markdownKey&quot;);
         /// </code>
         /// </example>
         public String GetHTMLText(string markdownKey)
@@ -552,13 +523,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///         //var result = entryResult.Result.GetMultipleHTMLText(&quot;markdownKey&quot;)
-        ///     });
+        ///     Entry entryResult = await entry.Fetch&lt;Entry&gt;();
+        ///     var result = entryResult.GetMultipleHTMLText(&quot;markdownKey&quot;);
         /// </code>
         /// </example>
         public List<String> GetMultipleHTMLText(string markdownKey)
@@ -593,13 +562,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///         //var result = entryResult.Result.Get(&quot;key&quot;);
-        ///     });
+        ///     Entry entryResult = await entry.Fetch&lt;Entry&gt;();
+        ///     var result = entryResult.Get(&quot;key&quot;);
         /// </code>
         /// </example>
         public Object Get(String key)
@@ -628,13 +595,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///         //var result = entryResult.Result.GetCreateAt();
-        ///     });
+        ///     Entry entryResult = await entry.Fetch&lt;Entry&gt;();
+        ///     var result = entryResult.GetCreateAt();
         /// </code>
         /// </example>
         public DateTime GetCreateAt()
@@ -659,13 +624,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///         //var result = entryResult.Result.GetCreatedBy();
-        ///     });
+        ///     Entry entryResult = await entry.Fetch&lt;Entry&gt;();
+        ///     var result = entryResult.GetCreatedBy();
         /// </code>
         /// </example>
         public string GetCreatedBy()
@@ -709,13 +672,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///         //var result = entryResult.Result.GetUpdateAt();
-        ///     });
+        ///     Entry entryResult = await entry.Fetch&lt;Entry&gt;();
+        ///     var result = entryResult.GetUpdateAt();
         /// </code>
         /// </example>
         public DateTime GetUpdateAt()
@@ -740,13 +701,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///         //var result = entryResult.Result.GetUpdatedBy();
-        ///     });
+        ///     Entry entryResult = await entry.Fetch&lt;Entry&gt;();
+        ///     var result = entryResult.GetUpdatedBy();
         /// </code>
         /// </example>
         public string GetUpdatedBy()
@@ -790,13 +749,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///         //var result = entryResult.Result.GetDeletedAt();
-        ///     });
+        ///     Entry entryResult = await entry.Fetch&lt;Entry&gt;();
+        ///     var result = entryResult.GetDeletedAt();
         /// </code>
         /// </example>
         public DateTime GetDeletedAt()
@@ -820,13 +777,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///         //var result = entryResult.Result.GetDeletedBy();
-        ///     });
+        ///     Entry entryResult = await entry.Fetch&lt;Entry&gt;();
+        ///     var result = entryResult.GetDeletedBy();
         /// </code>
         /// </example>
         public String GetDeletedBy()
@@ -842,13 +797,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///         //var result = entryResult.Result.ToJson();
-        ///     });
+        ///     Entry entryResult = await entry.Fetch&lt;Entry&gt;();
+        ///     var result = entryResult.ToJson();
         /// </code>
         /// </example>
         public JObject ToJson()
@@ -866,13 +819,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///         //var result = entryResult.Result.GetAsset(&quot;field_uid&quot;);
-        ///     });
+        ///     Entry entryResult = await entry.Fetch&lt;Entry&gt;();
+        ///     var result = entryResult.GetAsset(&quot;field_uid&quot;);
         /// </code>
         /// </example>
         private Asset GetAsset(String key)
@@ -892,13 +843,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///         //var result = entryResult.Result.GetAssets(&quot;field_uid&quot;);
-        ///     });
+        ///     Entry entryResult = await entry.Fetch&lt;Entry&gt;();
+        ///     var result = entryResult.GetAssets(&quot;field_uid&quot;);
         /// </code>
         /// </example>
         /// 
@@ -928,13 +877,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
         ///     entry.Except(new String[]{&quot;name&quot;, &quot;description&quot;});
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     Product entryResult = await entry.Fetch&lt;Product&gt;();
         /// </code>
         /// </example>
         public Entry Except(String[] fieldUid)
@@ -969,13 +916,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
         ///     entry.IncludeReference(&quot;name&quot;);
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     Product entryResult = await entry.Fetch&lt;Product&gt;();
         /// </code>
         /// </example>
         public Entry IncludeReference(String referenceField)
@@ -1003,13 +948,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
         ///     entry.IncludeReference(new String[]{&quot;name&quot;, &quot;description&quot;});
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     Product entryResult = await entry.Fetch&lt;Product&gt;();
         /// </code>
         /// </example>
         public Entry IncludeReference(String[] referenceFields)
@@ -1039,13 +982,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
         ///     entry.IncludeOnlyReference(new String[]{&quot;name&quot;, &quot;description&quot;}, &quot;referenceUid&quot;);
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     Product entryResult = await entry.Fetch&lt;Product&gt;();
         /// </code>
         /// </example>
         public Entry IncludeOnlyReference(string[] keys, string referenceKey)
@@ -1076,13 +1017,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
         ///     entry.IncludeReferenceContentTypeUID();
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     Product entryResult = await entry.Fetch&lt;Product&gt;();
         /// </code>
         /// </example>
         public Entry IncludeReferenceContentTypeUID()
@@ -1105,13 +1044,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
         ///     entry.IncludeSchema();
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     Product entryResult = await entry.Fetch&lt;Product&gt;();
         /// </code>
         /// </example>
         private Entry IncludeSchema()
@@ -1135,13 +1072,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
         ///     entry.IncludeOwner();
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     Product entryResult = await entry.Fetch&lt;Product&gt;();
         /// </code>
         /// </example>
         public Entry IncludeOwner()
@@ -1167,13 +1102,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
         ///     entry.IncludeExceptReference(new String[]{&quot;name&quot;, &quot;description&quot;},&quot;referenceUid&quot;);
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     Product entryResult = await entry.Fetch&lt;Product&gt;();
         /// </code>
         /// </example>
         public Entry IncludeExceptReference(string[] keys, string referenceKey)
@@ -1205,13 +1138,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
         ///     entry.Only(new String[]{&quot;name&quot;, &quot;description&quot;});
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     Product entryResult = await entry.Fetch&lt;Product&gt;();
         /// </code>
         /// </example>
         public Entry Only(String[] fieldUid)
@@ -1240,12 +1171,10 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Entry entry = stack.ContentType(&quot;contentType_id&quot;).Entry(&quot;entry_uid&quot;);
-        ///     entry.Fetch&lt;Product&gt;().ContinueWith((entryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     Product entryResult = await entry.Fetch&lt;Product&gt;();
         /// </code>
         /// </example>
         public async Task<T> Fetch<T>()

@@ -30,7 +30,7 @@ namespace Contentstack.Core.Models
         }
         #endregion
 
-        public ContentstackClient Stack
+        private ContentstackClient Stack
         {
             get;
             set;
@@ -57,12 +57,12 @@ namespace Contentstack.Core.Models
         /// <param name="order">Order.</param>
         /// <example>
         /// <code>
-        ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     // &quot;blt5d4sample2633b&quot; is a dummy Stack API key
+        ///     // &quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     AssetLibrary assetLibrary = stack.AssetLibrary();
         ///     assetLibrary.SortWithKeyAndOrderBy(&quot;custom_key&quot;, &quot;custom_value&quot;);
-        ///     ContentstackCollection<Asset> contentstackCollection = await assetLibrary.FetchAll();
+        ///     ContentstackCollection&lt;Asset&gt; assets = assetLibrary.FetchAll();
         /// </code>
         /// </example>
         public void SortWithKeyAndOrderBy(String key, OrderBy order)
@@ -82,8 +82,8 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     AssetLibrary assetLibrary = stack.AssetLibrary();
         ///     JObject jObject = await assetLibrary.Count();
         /// </code>
@@ -100,11 +100,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     AssetLibrary assetLibrary = stack.AssetLibrary();
         ///     assetLibrary.IncludeCount();
-        ///     ContentstackCollection<Asset> contentstackCollection = await assetLibrary.FetchAll();
+        ///     ContentstackCollection&lt;Asset&gt; assets = assetLibrary.FetchAll();
         /// </code>
         /// </example>
         public void IncludeCount()
@@ -118,11 +118,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     AssetLibrary assetLibrary = stack.AssetLibrary();
         ///     assetLibrary.IncludeRelativeUrls();
-        ///     ContentstackCollection<Asset> contentstackCollection = await assetLibrary.FetchAll();
+        ///     ContentstackCollection&lt;Asset&gt; assets = assetLibrary.FetchAll();
         /// </code>
         /// </example>
         public void IncludeRelativeUrls()
@@ -138,17 +138,21 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     AssetLibrary assetLibrary = stack.AssetLibrary();
         ///     assetLibrary.Skip(2);
-        ///     ContentstackCollection<Asset> contentstackCollection = await assetLibrary.FetchAll();
+        ///     ContentstackCollection&lt;Asset&gt; assets = assetLibrary.FetchAll();
         /// </code>
         /// </example>
         public AssetLibrary Skip(int number)
         {
             try
             {
+                if (UrlQueries != null && !UrlQueries.ContainsKey("skip"))
+                {
+                    UrlQueries.Remove("skip");
+                }
                 UrlQueries.Add("skip", number);
             }
             catch (Exception e)
@@ -166,17 +170,21 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     AssetLibrary assetLibrary = stack.AssetLibrary();
         ///     assetLibrary.Limit(20);
-        ///     ContentstackCollection<Asset> contentstackCollection = await assetLibrary.FetchAll();
+        ///     ContentstackCollection&lt;Asset&gt; assets = assetLibrary.FetchAll();
         /// </code>
         /// </example>
         public AssetLibrary Limit(int number)
         {
             try
             {
+                if (UrlQueries != null && !UrlQueries.ContainsKey("limit"))
+                {
+                    UrlQueries.Remove("limit");
+                }
                 UrlQueries.Add("limit", number);
             }
             catch (Exception e)
@@ -194,13 +202,14 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     AssetLibrary assetLibrary = stack.AssetLibrary();
         ///     assetLibrary.Only(new String[]{&quot;name&quot;, &quot;description&quot;});
-        ///     ContentstackCollection<Asset> contentstackCollection = await assetLibrary.FetchAll();
+        ///     ContentstackCollection&lt;Asset&gt; assets = assetLibrary.FetchAll();
         /// </code>
         /// </example>
+
         public AssetLibrary Only(String[] fieldUid)
         {
             try
@@ -226,11 +235,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     AssetLibrary assetLibrary = stack.AssetLibrary();
         ///     assetLibrary.Except(new String[]{&quot;name&quot;, &quot;description&quot;});
-        ///     ContentstackCollection<Asset> contentstackCollection = await assetLibrary.FetchAll();
+        ///     ContentstackCollection&lt;Asset&gt; assets = assetLibrary.FetchAll();
         /// </code>
         /// </example>
         public AssetLibrary Except(String[] fieldUids)
@@ -259,11 +268,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     AssetLibrary assetLibrary = stack.AssetLibrary();
         ///     assetLibrary.SetHeaderForKey(&quot;custom_header_key&quot;, &quot;custom_header_value&quot;);
-        ///     ContentstackCollection<Asset> contentstackCollection = await assetLibrary.FetchAll();
+        ///     ContentstackCollection&lt;Asset&gt; assets = assetLibrary.FetchAll();
         /// </code>
         /// </example>
         public AssetLibrary SetHeaderForKey(String key, String value)
@@ -284,11 +293,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     AssetLibrary assetLibrary = stack.AssetLibrary();
         ///     assetLibrary.RemoveHeader(&quot;custom_key&quot;);
-        ///     ContentstackCollection<Asset> contentstackCollection = await assetLibrary.FetchAll();
+        ///     ContentstackCollection&lt;Asset&gt; assets = assetLibrary.FetchAll();
         /// </code>
         /// </example>
         public AssetLibrary RemoveHeader(string key)
@@ -306,12 +315,11 @@ namespace Contentstack.Core.Models
         /// <returns>Current instance of AssetLibrary, this will be useful for a chaining calls.</returns>
         /// <example>
         /// <code>
-        ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
+        ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key.
         ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     AssetLibrary assetLibrary = stack.AssetLibrary();
-        ///     ContentstackCollection<Asset> contentstackCollection = await assetLibrary.FetchAll();
-        /// </code>
+        ///     ContentstackCollection&lt;Asset&gt; assets = assetLibrary.FetchAll();
         /// </code>
         /// </example>
         public async Task<ContentstackCollection<Asset>> FetchAll()

@@ -49,13 +49,10 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///         var result = queryResult.Result.ContentTypeId;
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public string ContentTypeId { get; set; }
@@ -146,13 +143,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
         ///     csQuery.SetLanguage(Language.ENGLISH_UNITED_STATES);
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         [ObsoleteAttribute("This method has been deprecated. Use SetLocale instead.", true)]
@@ -167,7 +162,7 @@ namespace Contentstack.Core.Models
                 string localeCode = languageCodeValues[localeValue].ToString();
                 localeCode = localeCode.Replace("_", "-");
 
-                if (QueryValueJson != null && !QueryValueJson.ContainsKey("locale"))
+                if (UrlQueries != null && !UrlQueries.ContainsKey("locale"))
                 {
                     UrlQueries.Remove("locale");
                     UrlQueries.Add("locale", localeCode);
@@ -195,18 +190,16 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
         ///     csQuery.SetLocale("en-us");
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query SetLocale(String Locale)
         {
-            if (QueryValueJson != null && !QueryValueJson.ContainsKey("locale"))
+            if (UrlQueries != null && !UrlQueries.ContainsKey("locale"))
             {
                 UrlQueries.Remove("locale");
                 UrlQueries.Add("locale", Locale);
@@ -226,10 +219,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
         ///     csQuery.SetHeader(&quot;custom_key&quot;, &quot;custom_value&quot;);
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public void SetHeader(String key, String value)
@@ -247,10 +241,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
         ///     csQuery.RemoveHeader(&quot;custom_key&quot;);
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public void RemoveHeader(String key)
@@ -270,13 +265,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
         ///     csQuery.Where(&quot;uid&quot;, &quot;bltf4fbsample851db&quot;);
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query Where(String key, Object value)
@@ -355,13 +348,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
         ///     csQuery.AddQuery(&quot;query_param_key&quot;, &quot;query_param_value&quot;);
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query AddQuery(String key, String value)
@@ -392,13 +383,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
         ///     csQuery.RemoveQuery(&quot;Query_Key&quot;);
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query RemoveQuery(String key)
@@ -425,8 +414,8 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     ContentType contentTypeObj = stack.ContentType(&quot;contentType_id&quot;);
         ///     Query csQuery = contentTypeObj.Query();
         ///     
@@ -441,9 +430,7 @@ namespace Contentstack.Core.Models
         ///     queryList.Add(query2);
         ///     
         ///     csQuery.And(queryList);
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query And(List<Query> queryObjects)
@@ -494,8 +481,8 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     ContentType contentTypeObj = stack.ContentType(&quot;contentType_id&quot;);
         ///     Query csQuery = contentTypeObj.Query();
         ///     
@@ -510,9 +497,7 @@ namespace Contentstack.Core.Models
         ///     queryList.Add(query2);
         ///     
         ///     csQuery.Or(queryList);
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query Or(List<Query> queryObjects)
@@ -566,14 +551,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
         ///     csQuery.LessThan(&quot;due_date&quot;, &quot;2013-06-25T00:00:00+05:30&quot;);
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query LessThan(String key, Object value)
@@ -612,14 +594,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
         ///     csQuery.LessThanOrEqualTo(&quot;due_date&quot;, &quot;2013-06-25T00:00:00+05:30&quot;);
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query LessThanOrEqualTo(String key, Object value)
@@ -658,14 +637,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
         ///     csQuery.GreaterThan(&quot;due_date&quot;, &quot;2013-06-25T00:00:00+05:30&quot;);
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query GreaterThan(String key, Object value)
@@ -704,14 +680,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
         ///     csQuery.GreaterThanOrEqualTo(&quot;due_date&quot;, &quot;2013-06-25T00:00:00+05:30&quot;);
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query GreaterThanOrEqualTo(String key, Object value)
@@ -750,14 +723,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
         ///     csQuery.NotEqualTo(&quot;due_date&quot;, &quot;2013-06-25T00:00:00+05:30&quot;);
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query NotEqualTo(String key, Object value)
@@ -799,14 +769,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
         ///     csQuery.ContainedIn(&quot;severity&quot;, new Object[]{&quot;Show Stopper&quot;, &quot;Critical&quot;});
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query ContainedIn(String key, Object[] values)
@@ -850,14 +817,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
         ///     csQuery.NotContainedIn(&quot;severity&quot;, new Object[]{&quot;Show Stopper&quot;, &quot;Critical&quot;});
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query NotContainedIn(String key, Object[] values)
@@ -900,14 +864,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
         ///     csQuery.Exists(&quot;severity&quot;);
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query Exists(String key)
@@ -943,14 +904,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
-        ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query
         ///     csQuery.NotExists(&quot;severity&quot;);
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query NotExists(String key)
@@ -985,14 +943,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///      ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///      ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
         ///     csQuery.IncludeReferenceContentTypeUID();
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query IncludeReferenceContentTypeUID()
@@ -1016,14 +971,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
         ///     csQuery.IncludeReference(&quot;for_bug&quot;);
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query IncludeReference(String filed_uid)
@@ -1045,14 +997,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
         ///     csQuery.IncludeReference(new String[]{&quot;for_bug&quot;, &quot;assignee&quot;});
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query IncludeReference(String[] filed_uids)
@@ -1073,14 +1022,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
-        ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query
         ///     csQuery.Tags(new String[]{&quot;tag1&quot;, &quot;tag2&quot;});
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         private Query Tags(String[] tags)
@@ -1118,14 +1064,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
         ///     csQuery.Ascending(&quot;name&quot;);
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query Ascending(String key)
@@ -1156,14 +1099,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
         ///     csQuery.Descending(&quot;name&quot;);
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query Descending(String key)
@@ -1193,14 +1133,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
         ///     csQuery.IncludeCount();
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query IncludeCount()
@@ -1223,14 +1160,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
         ///     csQuery.IncludeOwner();
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query IncludeOwner()
@@ -1254,14 +1188,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
         ///     csQuery.Only(new String[]{&quot;name&quot;, &quot;description&quot;});
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query Only(String[] fieldUid)
@@ -1289,14 +1220,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
-        ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();s
         ///     csQuery.Except(new String[]{&quot;name&quot;, &quot;description&quot;});
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query Except(String[] fieldUids)
@@ -1324,14 +1252,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
         ///     csQuery.IncludeSchema();
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query IncludeSchema()
@@ -1356,20 +1281,21 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
         ///     csQuery.Skip(2);
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query Skip(int number)
         {
             try
             {
+                if (UrlQueries != null && !UrlQueries.ContainsKey("skip"))
+                {
+                    UrlQueries.Remove("skip");
+                }
                 UrlQueries.Add("skip", number);
             }
             catch (Exception e)
@@ -1387,14 +1313,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
         ///     csQuery.Limit(2);
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query Limit(int number)
@@ -1419,14 +1342,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
         ///     csQuery.Regex(&quot;name&quot;, &quot;^browser&quot;);
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query Regex(String key, String regex)
@@ -1466,14 +1386,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
         ///     csQuery.Regex(&quot;name&quot;, &quot;^browser&quot;, &quot;i&quot;);
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query Regex(String key, String regex, String modifiers)
@@ -1512,14 +1429,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
         ///     csQuery.WhereTags(new String[]{&quot;tag1&quot;, &quot;tag2&quot;});
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query WhereTags(string[] tags)
@@ -1543,14 +1457,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
         ///     csQuery.SetCachePolicy(CachePolicy.CacheElseNetwork);
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public Query SetCachePolicy(CachePolicy cachePolicy)
@@ -1566,13 +1477,10 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public async Task<ContentstackCollection<T>> Find<T>()
@@ -1588,14 +1496,11 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
         ///     csQuery.Count();
-        ///     csQuery.Find&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public async Task<JObject> Count()
@@ -1619,13 +1524,10 @@ namespace Contentstack.Core.Models
         /// <example>
         /// <code>
         ///     //&quot;blt5d4sample2633b&quot; is a dummy Stack API key
-        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy access token.
-        ///     ContentstackClient stack = new ContentstackClinet(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
+        ///     //&quot;blt6d0240b5sample254090d&quot; is dummy Delivery Token.
+        ///     ContentstackClient stack = new ContentstackClient(&quot;blt5d4sample2633b&quot;, &quot;blt6d0240b5sample254090d&quot;, &quot;stag&quot;);
         ///     Query csQuery = stack.ContentType(&quot;contentType_id&quot;).Query();
-        ///     
-        ///     csQuery.FindOne&lt;Product&gt;().ContinueWith((queryResult) =&gt; {
-        ///         //Your callback code.
-        ///     });
+        ///     ContentstackCollection&lt;Product&gt; products = await csQuery.Find&lt;Product&gt;();
         /// </code>
         /// </example>
         public async Task<ContentstackCollection<T>> FindOne<T>()
